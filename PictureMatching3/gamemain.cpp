@@ -12,19 +12,19 @@ GameMain::GameMain(QWidget *parent)
     TDPushButton * guideBtn1 = new TDPushButton(":/img/restart_normal.png",":/img/restart_hover.png",":/img/restart_press.png",this);
     guideBtn1->move(140,41);
     //重新开始
-    guideBtn1->setCallback(this,my_selector(restart));
+    guideBtn1->setCallback(this,my_selector(GameMain::restart));
     TDPushButton * guideBtn2 = new TDPushButton(":/img/reorder_normal.png",":/img/reorder_hover.png",":/img/reorder_press.png",this);
     guideBtn2->move(250,41);
     //重新排序
-    guideBtn2->setCallback(this,my_selector(reorder));
+    guideBtn2->setCallback(this,my_selector(GameMain::reorder));
     TDPushButton * guideBtn3 = new TDPushButton(":/img/prompt_normal.png",":/img/prompt_hover.png",":/img/prompt_press.png",this);
     guideBtn3->move(360,41);
     //提示
-    guideBtn3->setCallback(this,my_selector(prompt));
+    guideBtn3->setCallback(this,my_selector(GameMain::prompt));
     TDPushButton * guideBtn4 = new TDPushButton(":/img/exit_normal.png",":/img/exit_hover.png",":/img/exit_press.png",this);
     guideBtn4->move(470,41);
     //结束游戏
-    guideBtn4->setCallback(this,my_selector(exitGame));
+    guideBtn4->setCallback(this,my_selector(GameMain::exitGame));
 
     //初始化指针数组中所有都只想空
     for(int i = 0 ; i< 11 ; i++)

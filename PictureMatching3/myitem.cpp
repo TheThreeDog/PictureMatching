@@ -4,7 +4,7 @@ MyItem::MyItem(const QString pic_n, const QString pic_h, const QString pic_s, QW
     :TDMenuButton(pic_n,pic_h,pic_s,parent)
 {
     //鼠标一点击，就执行回调函数
-    this->setCallback(this,my_selector(itemClicked));
+    this->setCallback(this,my_selector(MyItem::itemClicked));
 }
 
 void MyItem::setIndex(const int i)

@@ -14,7 +14,7 @@ Widget::Widget(QWidget *parent)
     beginBtn->move(330,450);
     //给按钮指定一个触发的函数
     beginBtn->setCallback \
-   (this,my_selector(startGame));//回调
+   (this,my_selector(Widget::startGame));//回调
 }
 
 void Widget::startGame()
