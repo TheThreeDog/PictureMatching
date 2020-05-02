@@ -1,3 +1,10 @@
+# Qt-version-dependent debugging output
+build-PictureMatching3-Desktop_Qt_5_11_1_MinGW_32bit-Debug/
+
+# Qt Creator config
+*.pro.user
+## E.g. PictureMatching\PictureMatching3\PictureMatching3.pro.user
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

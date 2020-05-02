@@ -3,7 +3,15 @@
 #include <QDebug>
 
 #include <iostream>
-using namespace std;
+using std::cout;
+using std::endl;
+using std::min;
+using std::max;
+
+#include <tuple>
+using std::tuple;
+using std::make_tuple; // variables -> tuple
+using std::tie; // tuple -> variables
 
 GameMain::GameMain(QWidget *parent)
     :TDWidget(":/img/game_main_with_logo.png",parent)
@@ -73,6 +81,16 @@ void GameMain::createItems()
     }
     //方块的图片是随机的。
 }
+
+// 坐标转位置
+tuple<int,int,int,int> coordicateToIndex(MyItem *item1, MyItem *item2){
+    int x1 = (item1->x()-100)/65; // Gee, magic number 100, 65
+    int y1 = (item1->y()-100)/65;
+    int x2 = (item2->x()-100)/65;
+    int y2 = (item2->y()-100)/65;
+    return make_tuple(x1,y1,x2,y2);
+}
+
 //判断可以连通的函数
 bool GameMain::canConnect(MyItem *item1, MyItem *item2)
 {
@@ -80,16 +98,14 @@ bool GameMain::canConnect(MyItem *item1, MyItem *item2)
     if(item1 == NULL || item2 == NULL)
         return false;
     //提取两个方块数组中所处的位置
-    int x1 = (item1->x()-100)/65;
-    int y1 = (item1->y()-100)/65;
-    int x2 = (item2->x()-100)/65;
-    int y2 = (item2->y()-100)/65;
+    int x1,y1,x2,y2;
+    tie(x1,y1,x2,y2) = coordicateToIndex(item1,item2);
     // bool ret = false;
     // ret = canConnect(x1,x2,y2,y2);
     // return ret;
     return canConnect(x1,y1,x2,y2);
-
 }
+
 //重载一个连通函数接口
 bool GameMain::canConnect(int x1, int y1, int x2, int y2)
 {
